@@ -1,0 +1,302 @@
+Homework #3
+Your name:
+
+
+---------------------------------------- Question 1 Query ---------------------------------------- 
+Find number of rentals with a rental price of 4.99
+
+select amount, distinct rental.rental_id from rental
+Join payment on payment.rental_id = rental.rental_id
+where amount = 4.99;
+
+
+select count(rental_id) from payment where amount = 4.99 group by rental_id;
+
+SELECT count(DISTINCT rental_id) from payment where amount = 4.99;
+
+---------------------------------------- Question 1 Results ---------------------------------------- 					
+
+										put result here	(output of the table)	
+
+---------------------------------------- Question 2 Query ---------------------------------------- 
+
+select * from customer where active = 0 order by last_name, first_name;
+
+---------------------------------------- Question 2 Results ---------------------------------------- 					
+
+customer_id | store_id | first_name | last_name |                email                | address_id | activebool | create_date |      last_update       | active 
+-------------+----------+------------+-----------+-------------------------------------+------------+------------+-------------+------------------------+--------
+         368 |        1 | HARRY      | ARCE      | HARRY.ARCE@sakilacustomer.org       |        373 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+          64 |        2 | JUDITH     | COX       | JUDITH.COX@sakilacustomer.org       |         68 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         482 |        1 | MAURICE    | CRAWLEY   | MAURICE.CRAWLEY@sakilacustomer.org  |        487 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         446 |        2 | THEODORE   | CULP      | THEODORE.CULP@sakilacustomer.org    |        451 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         510 |        2 | BEN        | EASTER    | BEN.EASTER@sakilacustomer.org       |        515 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         558 |        1 | JIMMIE     | EGGLESTON | JIMMIE.EGGLESTON@sakilacustomer.org |        564 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         315 |        2 | KENNETH    | GOODEN    | KENNETH.GOODEN@sakilacustomer.org   |        320 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         534 |        1 | CHRISTIAN  | JUNG      | CHRISTIAN.JUNG@sakilacustomer.org   |        540 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         241 |        2 | HEIDI      | LARSON    | HEIDI.LARSON@sakilacustomer.org     |        245 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+          16 |        2 | SANDRA     | MARTIN    | SANDRA.MARTIN@sakilacustomer.org    |         20 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         169 |        2 | ERICA      | MATTHEWS  | ERICA.MATTHEWS@sakilacustomer.org   |        173 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         271 |        1 | PENNY      | NEAL      | PENNY.NEAL@sakilacustomer.org       |        276 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         592 |        1 | TERRANCE   | ROUSH     | TERRANCE.ROUSH@sakilacustomer.org   |        598 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         406 |        1 | NATHAN     | RUNYON    | NATHAN.RUNYON@sakilacustomer.org    |        411 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+         124 |        1 | SHEILA     | WELLS     | SHEILA.WELLS@sakilacustomer.org     |        128 | t          | 2017-02-14  | 2017-02-15 09:57:20-07 |      0
+	
+
+---------------------------------------- Question 3 Query ---------------------------------------- 
+
+select payment_id, amount, payment_date from payment order by amount desc limit 10;
+
+---------------------------------------- Question 3 Results ---------------------------------------- 					
+
+ payment_id | amount |         payment_date          
+------------+--------+-------------------------------
+      24866 |  11.99 | 2017-03-02 20:46:39.996577-07
+      28814 |  11.99 | 2017-04-06 21:26:57.996577-06
+      23757 |  11.99 | 2017-03-21 22:02:26.996577-06
+      24553 |  11.99 | 2017-03-23 20:47:59.996577-06
+      17354 |  11.99 | 2017-02-17 22:19:47.996577-07
+      28799 |  11.99 | 2017-04-07 19:14:17.996577-06
+      20403 |  11.99 | 2017-03-21 21:57:24.996577-06
+      22650 |  11.99 | 2017-03-22 22:17:22.996577-06
+      17055 |  11.99 | 2017-01-25 16:46:45.996577-07
+      29136 |  11.99 | 2017-04-29 21:06:07.996577-06
+
+---------------------------------------- Question 4 Query Method 1 ---------------------------------------- 
+
+select count(*) from film where language_id = (select language_id from language where name = 'English             ');
+
+---------------------------------------- Question 4 Results Method 1 ---------------------------------------- 					
+
+ count 
+-------
+  1000
+(1 row)
+
+---------------------------------------- Question 4 Query Method 2 ---------------------------------------- 
+
+select count(*) from film
+Join language on film.language_id = language.language_id
+where name = 'English             ';
+
+---------------------------------------- Question 4 Results Method 2 ---------------------------------------- 					
+
+ count 
+-------
+  1000
+(1 row)
+
+
+---------------------------------------- Question 5 Query ---------------------------------------- 
+select count(*) from inventory group by film_id order by count desc limit 1;
+
+---------------------------------------- Question 5 Results ---------------------------------------- 					
+
+ count 
+-------
+     8
+
+---------------------------------------q- Question 6 Query ---------------------------------------- 
+
+select customer_id, sum(amount) from payment where customer_id > 500 group by customer_id ;
+---------------------------------------- Question 6 Results ---------------------------------------- 					
+ customer_id |  sum   
+-------------+--------
+         550 | 159.68
+         539 |  90.78
+         554 | 101.78
+         576 | 139.66
+         509 | 100.80
+         556 |  83.79
+         529 | 118.71
+         502 | 138.66
+         587 | 108.74
+         578 |  96.78
+         506 | 152.65
+         508 | 127.75
+         599 |  83.81
+         596 |  96.72
+         512 | 115.74
+         523 |  93.78
+         538 | 117.71
+         595 | 117.70
+         534 |  88.76
+         597 |  99.75
+         548 |  79.81
+         501 |  89.79
+         545 |  89.79
+         528 | 111.75
+         563 | 110.71
+         557 |  73.76
+         559 | 110.72
+         513 | 148.69
+         589 | 129.72
+         555 |  74.83
+         522 | 167.67
+         567 |  85.80
+         575 | 126.71
+         507 |  95.75
+         543 |  82.78
+         565 | 126.71
+         566 | 141.66
+         551 |  96.74
+         532 | 152.68
+         592 | 111.71
+         553 | 107.76
+         519 | 103.77
+         521 |  80.77
+         558 | 135.72
+         540 | 112.76
+         598 |  83.78
+         526 | 221.55
+         524 |  87.81
+         588 | 115.71
+         586 |  64.81
+         572 | 108.75
+         593 | 113.74
+         549 |  77.80
+         552 |  90.79
+         541 | 108.76
+         577 | 118.72
+         505 |  97.79
+         561 |  96.73
+         525 |  74.81
+         531 | 118.75
+         546 | 107.74
+         562 | 109.75
+         537 | 103.75
+         581 | 107.73
+         591 | 134.73
+         503 | 115.68
+         573 | 120.71
+         517 | 105.75
+         585 | 117.76
+         511 |  99.76
+         514 |  74.78
+         582 | 113.75
+         504 | 133.72
+         560 | 132.70
+         547 |  99.77
+         518 | 111.74
+         583 | 117.77
+         569 | 134.68
+         527 |  81.76
+         590 | 112.75
+         564 |  91.76
+         535 | 135.68
+         579 | 111.73
+         510 | 122.74
+         584 | 129.70
+         515 | 126.72
+         574 | 109.72
+         571 | 121.76
+         516 |  98.74
+         542 |  94.82
+         594 | 130.73
+         533 | 141.67
+         568 |  66.79
+         544 |  98.78
+         570 |  99.74
+         580 |  99.73
+         530 |  76.77
+         536 | 117.75
+         520 | 134.68
+(99 rows)
+
+---------------------------------------- Question 7 Query ---------------------------------------- 
+
+select sum(payment.amount), category_id 
+from payment join rental on
+payment.rental_id = rental.rental_id join inventory on
+inventory.inventory_id = rental.inventory_id join film on 
+film.film_id = inventory.film_id join film_category on film_category.film_id = film.film_id group by category_id;
+
+---------------------------------------- Question 7 Results ---------------------------------------- 					
+
+   sum   | category_id 
+---------+-------------
+ 3639.59 |           4
+ 4756.98 |          14
+ 3655.55 |           3
+ 4270.67 |           9
+ 4361.57 |          13
+ 4281.33 |          10
+ 4587.39 |           7
+ 4375.85 |           1
+ 4383.58 |           5
+ 4656.30 |           2
+ 3549.64 |          16
+ 5314.21 |          15
+ 4217.52 |           6
+ 3417.72 |          12
+ 4226.07 |           8
+ 3722.54 |          11
+(16 rows)
+
+---------------------------------------- Question 8 Query ---------------------------------------- 
+
+
+select * from customer
+Join payment on customer.customer_id = payment.customer_id;
+where first_name = 'JOHN';
+
+Find number of rentals made by user with first name: JOHN last name: FARNSWORTH
+
+---------------------------------------- Question 8 Results ---------------------------------------- 					
+
+Find number of rentals made by user with first name: JOHN last name: FARNSWORTH										put result here	(output of the table)	
+
+---------------------------------------- Question 9 Query ---------------------------------------- 
+select count(*) from payment where payment_date < '20170127';
+
+---------------------------------------- Question 9 Results ---------------------------------------- 					
+
+ count 
+-------
+   328
+(1 row)
+
+---------------------------------------- Question 10 Query ---------------------------------------- 
+
+CREATE TABLE short_films (
+	film_id integer NOT NULL,
+	title varchar(40) NOT NULL,
+	length integer NOT NULL,
+	replacement_cost decimal(9,2) NOT NULL,
+	rating varchar(5) NOT NULL,
+);
+	
+---------------------------------------- Question 11 Query ---------------------------------------- 
+
+INSERT INTO short_films(film_id, title, length, replacement_cost, rating)
+SELECT film_id, title, length, replacement_cost, rating FROM film
+WHERE length < 50;
+
+---------------------------------------- Question 12 Query ---------------------------------------- 
+
+DELETE FROM short_films WHERE replacement_cost > 19.99;
+
+---------------------------------------- Question 13 Query ---------------------------------------- 
+
+ALTER TABLE short_films
+ADD stars INT default 5;
+
+---------------------------------------- Question 14 Query ---------------------------------------- 
+
+Alter the name of the length column in short_films to say 'length_min' and
+add a new column named 'length_sec' and fill it with the length in seconds of each movie.
+
+ALTER TABLE short_films RENAME COLUMN length TO length_min;
+
+ALTER TABLE short_films
+ADD length_sec INT;
+
+
+update short_films
+set length_sec = length_min*60 ;
+
+---------------------------------------- Question 15 Query ---------------------------------------- 
+
+DROP TABLE short_films;
+
+

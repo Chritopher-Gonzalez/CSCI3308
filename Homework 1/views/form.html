@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!--first line includes bootstrap from cmd, the next line makes the webpage mobil friendly-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="mypage_bootstrap.html">Home</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container-fluid">
+      <form>
+        <h1>Add New Interest</h1>
+        <form>
+          <div class="form-group">
+            <label for="interestName">Interest Name</label>
+            <input type="email" class="form-control" id="interestName" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="textarea">Text About Interest</label>
+            <textarea class="form-control" id="textarea" rows="3"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+               <p>Default file:</p>
+              <input type="file" id="myFile" name="filename2">
+
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Select # Tweets to Display</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Login">On a scale of 1-5, how interested in this are you?</label>
+            <br>
+            <label class="checkbox-inline"><input type="checkbox" value="">1  </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">2  </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">3  </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">4  </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">5  </label>
+          </div>
+
+
+          <label for="Login">Login to Finish Submitting</label>
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="login" placeholder="Username">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="login" placeholder="Password">
+                </div>
+              </div>
+              </div>
+            </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </form>
+    </div>
+
+
+
+</body>
+</html>

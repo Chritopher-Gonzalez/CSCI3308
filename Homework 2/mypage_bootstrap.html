@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <!--first line includes bootstrap from cmd, the next line makes the webpage mobil friendly-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Me</title>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    	  <a class="navbar-brand" href="mypage_bootstrap.html">
+    		<img class="rounded-circle" src="img/cu_boulder_logo.jpg" alt="" width="30" height="30">
+    	  </a>
+    	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+    	  </button>
+    	  <div class="collapse navbar-collapse" id="navbarText">
+    		<ul class="navbar-nav mr-auto">
+    		  <li class="nav-item active">
+    			<a class="nav-link" href="mypage_bootstrap.html">Profile</a>
+    		  </li>
+    		  <li class="nav-item">
+    			<a class="nav-link" href="signup-modal/login.html">Sign Up Modal<span class="sr-only">(current)</span></a>
+    		  </li>
+    		  <li class="nav-item">
+    			<a class="nav-link" href="tic-tac-toe/tic-tac-toe.html">TicTacToe</a>
+    		  </li>
+    		</ul>
+    		<div class="form-inline my-2 my-lg-0">
+    			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+    		</div>
+    	  </div>
+    	</nav>
+      <h1>
+        Gonzalez-Millan, Christopher
+        <small class="text-muted"> Software Development Methods & Tools</small>
+      </h1>
+      <div class="card">
+        <div class="card-header">
+          Can speak 3 languages, car mechanic, can code 3 languages.
+          I am studying Computer Science becuase I wanted to learn more about the theory of computaiton and how we are able to apply these concepts to real works examples
+        </div>
+      </div>
+      <br>
+
+      <h2 class="text-center">My Professional Profile</h2>
+        <p> <img style="padding: 0 15px; float: left;" src="img/image_self.jpg"  alt="" width="500" value = "me" class = "rounded-circle"> </p>
+        <p style="margin-top: 20px;"> </p>
+      <p class="text-center">
+        <a href="https://github.com/Chritopher-Gonzalez"  class="btn btn-outline-danger" role="button">Christopher's Github</a>
+      </p>
+      <h3 class="text-center">My Favriote Projects</h3>
+      <div style="float: left;">
+        <p class="text-center">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name of Project</th>
+                <th scope="col">Technologies Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Place Holder</td>
+                <td>Place Holder</td>
+              </tr>
+              <tr>
+                <td>Place Holder</td>
+                <td>Place Holder</td>
+              </tr>
+              <tr>
+                <td>Place Holder</td>
+                <td>Place Holder</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+      </div>
+      <br>
+      <br>
+      <div style="float: left;">
+        <h4>My Interests</h4>
+        <p>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="card">
+                <img class="card-img-top" src="img/stonks.jpg" alt="Card image cap">
+                <div class="card-body" id ="interest1">
+                  <h5 class="card-title">Investing</h5>
+                  <p class="card-text">Stonks can only go up. Buy at the dip and hold with iron hands. </p>
+                  <a class="btn btn-info" role="button" onclick = "addCard('interest1')"></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="card">
+                <div class="card-body" id ="interest2">
+                  <img class="card-img-top" src="img/pot.jpg" alt="Card image cap" >
+                  <h5 class="card-title">Ceramics</h5>
+                  <p class="card-text">The process of making prottery is relaxing and serves as an outlet</p>
+                  <a class="btn btn-info" role="button" onclick = "addCard('interest2')"></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="card">
+                <div class="card-body" id ="interest3">
+                  <img class="card-img-top" src="img/soundcloud.jpg" alt="Card image cap">
+                  <h5 class="card-title">Producing</h5>
+                  <p class="card-text">Making some beats/music that makes you feel something. peep soundcloud</p>
+                  <a class="btn btn-info" role="button" onclick = "addCard('interest3')"></a>
+              </div>
+            </div>
+          </div>
+        </p>
+        </div>
+        <a href="form.html" class="btn btn-info" role="button">Add interest</a>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <script>
+          function addCard(id) {
+            //$('#interest3').append('<div class="card" > .... more card info goes here... </div>')
+            var tweet = $( '<div class="card" id ="test"> <a class="btn btn-danger" role="button" onclick = "deleteCard("test")"></a> <h5 class="card-title">Tweet </h5> <p class="card-text">sample Twwet will go here</p> </div>');
+            tweet.appendTo('#' + id);
+          }
+          function deleteCard(id) {
+            var mainCard = document.getElementById(id);
+            mainCard.parentNode.removeChild(mainCard);
+          }
+        </script>
+  </body>
+</html>
